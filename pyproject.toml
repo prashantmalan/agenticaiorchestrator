@@ -1,0 +1,20 @@
+[project]
+name = "agenticaiorchestrator"
+version = "0.1.0"
+description = "AgenticAIOrchestrator using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.86.0,<1.0.0"
+]
+
+[project.scripts]
+agenticaiorchestrator = "agenticaiorchestrator.main:run"
+run_crew = "agenticaiorchestrator.main:run"
+train = "agenticaiorchestrator.main:train"
+replay = "agenticaiorchestrator.main:replay"
+test = "agenticaiorchestrator.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,20 @@
+agents:
+  data_ingestion_agent:
+    role: "Data Ingestion"
+    goal: "Read FPML data and generate a CSV with column names and values."
+    backstory: "Responsible for ingesting data and preparing it for mapping."
+
+  mapping_agent:
+    role: "Data Mapping"
+    goal: "Map data from ingestion output using regulatory knowledge."
+    backstory: "Aligns ingested data with regulatory requirements."
+
+  validation_agent:
+    role: "Data Validation"
+    goal: "Validate data against XML/XSD format specified by regulators."
+    backstory: "Ensures data compliance with regulatory standards."
+
+  monitoring_agent:
+    role: "Compliance Monitoring"
+    goal: "Draft a document providing information for each data column."
+    backstory: "Monitors and documents data compliance efforts."
