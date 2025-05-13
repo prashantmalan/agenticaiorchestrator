@@ -1,57 +1,55 @@
-import os
-import zipfile
-import logging
-from crew import ComplianceCrew
+from crewai import Crew
+from textwrap import dedent
+from agents import RegulatoryAgents
+from tasks import RegulatoryTasks
 from dotenv import load_dotenv
 
-# Configure logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
+load_dotenv()
 
-class ComplianceSystem:
+class ComplianceCrew:
     def __init__(self):
-        self.crew = ComplianceCrew()
-
-    def extract_zip(self, zip_path, extract_to):
-        try:
-            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-                zip_ref.extractall(extract_to)
-            logger.info(f"Successfully extracted ZIP file to {extract_to}")
-            with open("extraction_log.txt", "w") as file:
-                file.write(f"Extracted files to {extract_to}\n")
-        except Exception as e:
-            logger.error(f"Error extracting ZIP file: {str(e)}")
-            raise
+        self.agents = RegulatoryAgents()
+        self.tasks = RegulatoryTasks()
 
     def run(self):
-        try:
-            # Configuration
-            local_zip_path = r"C:\Users\user\Downloads\AIDG_v2_0.zip"
-            extract_directory = r"C:\Users\user\Downloads\AIDG"
-            trade_data_url = "https://www.fpml.org/spec/fpml-5-3-6-rec-1/html/confirmation/xml/products/interest-rate-derivatives/ird-ex01-vanilla-swap.xml"
+        # Define your custom agents and tasks here
+        trade_data_ingestion_agent = self.agents.trade_data_ingestion_agent()
+        regulatory_data_ingestion_agent = self.agents.regulatory_data_ingestion_agent()
+        data_mapping_agent = self.agents.data_mapping_agent()
+        validation_agent = self.agents.validation_agent()
+        monitoring_agent = self.agents.monitoring_agent()
 
-            # Extract documents
-            self.extract_zip(local_zip_path, extract_directory)
+        # Custom tasks include agent name and variables as input
+        mapping_task = self.tasks.mapping_task(data_mapping_agent)
+        validation_task = self.tasks.validation_task(validation_agent)
+        compliance_monitoring_task = self.tasks.compliance_monitoring_task(monitoring_agent)
 
-            # Use the ComplianceCrew tools
-            self.crew.regulatory_tool.read_regulatory_docs(extract_directory)
-            self.crew.fpml_tool.fetch_and_parse_fpml(trade_data_url)  # Pass the correct URL variable
+        # Define your custom crew here
+        crew = Crew(
+            agents=[
+                trade_data_ingestion_agent,
+                regulatory_data_ingestion_agent,
+                data_mapping_agent,
+                validation_agent,
+                monitoring_agent
+            ],
+            tasks=[
+                mapping_task,
+                validation_task,
+                compliance_monitoring_task
+            ],
+            verbose=True,
+        )
 
-            # Run the workflow
-            result = self.crew.run_workflow()
-            logger.info(f"Workflow result: {result}")
-
-            with open("workflow_result.txt", "w") as file:
-                file.write(f"Workflow result: {result}\n")
-
-        except Exception as e:
-            logger.error(f"Error in main execution: {str(e)}")
-            raise
+        result = crew.kickoff()
+        return result
 
 if __name__ == "__main__":
-    load_dotenv()  # Ensure environment variables are loaded
-    system = ComplianceSystem()
-    system.run()
+    print("## Welcome to Compliance Crew")
+    print('-------------------------------')
+    compliance_crew = ComplianceCrew()
+    result = compliance_crew.run()
+    print("\n\n########################")
+    print("## Compliance Process Result")
+    print("########################\n")
+    print(result)

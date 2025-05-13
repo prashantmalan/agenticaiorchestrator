@@ -1,10 +1,16 @@
 agents:
-  data_ingestion_agent:
+  trade_data_ingestion_agent:
     role: "Data Ingestion"
     goal: "Read FPML data and generate a CSV with column names and values."
     backstory: "Responsible for ingesting data and preparing it for mapping."
+    tools=[fpml_data_tool.]
 
-  mapping_agent:
+  regulatory_data_ingestion_agent:
+    role: "Regulatory Data Ingestion"
+    goal: "Read a folder and consume knowledge from all the regulatory ."
+    backstory: "Responsible for consuming regulatory data."
+
+  data_mapping_agent:
     role: "Data Mapping"
     goal: "Map data from ingestion output using regulatory knowledge."
     backstory: "Aligns ingested data with regulatory requirements."

@@ -1,13 +1,18 @@
 tasks:
-  data_ingestion_task:
+  trade_data_ingestion_task:
     description: "Ingest FPML data and generate a CSV with column names and values."
     expected_output: "CSV file named ingestion_output.csv with FPML data."
-    agent: "data_ingestion_agent"
+    agent: "trade_data_ingestion_agent"
+
+  regulatory_data_ingestion_task:
+    description: "Consume regulatory docs from folder and build the knowledge based"
+    expected_output: "CSV file with a list of columns need for a regulatory requirements  and their validation rules"
+    agent: "regulatory_data_ingestion_agent"
 
   mapping_task:
-    description: "Map ingested data to regulatory requirements and generate a CSV."
+    description: "Map ingested trade data to regulatory data column by column and generate a CSV."
     expected_output: "CSV file named mapped_output.csv with mapped data."
-    agent: "mapping_agent"
+    agent: "data_mapping_agent"
 
   validation_task:
     description: "Validate mapped data against XML/XSD format required by regulators."
