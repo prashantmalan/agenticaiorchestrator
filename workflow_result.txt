@@ -1,0 +1,17 @@
+Workflow result: monitoring_report.txt
+
+---
+
+**Column: TradeID**  
+Description: Unique identifier assigned to each trade transaction. This alphanumeric field ensures traceability and distinct identification of individual trades within the dataset. It must be non-empty, unique, and conform to the format constraints specified by the regulator's schema.
+
+**Column: TradeDate**  
+Description: The date on which the trade was executed. This field should follow the ISO 8601 date format (YYYY-MM-DD). Accurate date formatting is essential for chronological validation and reporting purposes. It must represent a valid calendar date and cannot be in the future.
+
+**Column: ProductType**  
+Description: The category or type of financial product involved in the trade (e.g., FX, Equity, Bond). This string field classifies the trade for regulatory reporting and must match predefined product classifications as specified by the schema. It is a mandatory field and should be validated against accepted values.
+
+**Column: Currency**  
+Description: The ISO 4217 currency code (e.g., USD, EUR, JPY) indicating the currency denomination of the trade amount. This field is essential for financial calculations and reporting accuracy. It must be a valid three-letter currency code and conform to ISO standards.
+
+**Column: Amount**

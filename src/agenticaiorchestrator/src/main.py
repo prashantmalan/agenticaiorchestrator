@@ -1,13 +1,12 @@
 import os
 import zipfile
-from PyPDF2 import PdfReader
-import requests
-from crew import ComplianceCrew
 import logging
+from crew import ComplianceCrew
+from dotenv import load_dotenv
 
 # Configure logging
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
@@ -21,35 +20,10 @@ class ComplianceSystem:
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
                 zip_ref.extractall(extract_to)
             logger.info(f"Successfully extracted ZIP file to {extract_to}")
+            with open("extraction_log.txt", "w") as file:
+                file.write(f"Extracted files to {extract_to}\n")
         except Exception as e:
             logger.error(f"Error extracting ZIP file: {str(e)}")
-            raise
-
-    def read_regulatory_docs(self, directory):
-        try:
-            for root, dirs, files in os.walk(directory):
-                for file in files:
-                    if file.endswith('.pdf'):
-                        file_path = os.path.join(root, file)
-                        logger.info(f"Processing PDF: {file_path}")
-                        with open(file_path, 'rb') as f:
-                            reader = PdfReader(f)
-                            for page in reader.pages:
-                                text = page.extract_text()
-                                if text:
-                                    logger.info(f"Extracted text preview: {text[:100]}")
-        except Exception as e:
-            logger.error(f"Error reading regulatory documents: {str(e)}")
-            raise
-
-    def fetch_trade_data(self, url):
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            logger.info("Successfully fetched trade data")
-            return response.content
-        except Exception as e:
-            logger.error(f"Error fetching trade data: {str(e)}")
             raise
 
     def run(self):
@@ -59,19 +33,25 @@ class ComplianceSystem:
             extract_directory = r"C:\Users\user\Downloads\AIDG"
             trade_data_url = "https://www.fpml.org/spec/fpml-5-3-6-rec-1/html/confirmation/xml/products/interest-rate-derivatives/ird-ex01-vanilla-swap.xml"
 
-            # Extract and process documents
+            # Extract documents
             self.extract_zip(local_zip_path, extract_directory)
-            self.read_regulatory_docs(extract_directory)
-            trade_data = self.fetch_trade_data(trade_data_url)
+
+            # Use the ComplianceCrew tools
+            self.crew.regulatory_tool.read_regulatory_docs(extract_directory)
+            self.crew.fpml_tool.fetch_and_parse_fpml(trade_data_url)  # Pass the correct URL variable
 
             # Run the workflow
             result = self.crew.run_workflow()
             logger.info(f"Workflow result: {result}")
+
+            with open("workflow_result.txt", "w") as file:
+                file.write(f"Workflow result: {result}\n")
 
         except Exception as e:
             logger.error(f"Error in main execution: {str(e)}")
             raise
 
 if __name__ == "__main__":
+    load_dotenv()  # Ensure environment variables are loaded
     system = ComplianceSystem()
     system.run()

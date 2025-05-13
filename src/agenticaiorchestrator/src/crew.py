@@ -3,22 +3,28 @@ from langchain.llms import OpenAI
 import yaml
 import os
 import logging
-import pandas as pd
 from dotenv import load_dotenv
+from tools.regulatory_data_tool import RegulatoryDataTool
+from tools.fpml_data_tool import FPMLDataTool
+import pandas as pd
 
-# Load environment variables from .env file
+# Load environment variables
 load_dotenv()
 
 logger = logging.getLogger(__name__)
+logging.getLogger('LiteLLM').setLevel(logging.WARNING)  # Set to WARNING to suppress DEBUG logs
 
+#logger = logging.getLogger(__name__)
 class ComplianceCrew:
     def __init__(self):
-        # Initialize OpenAI with GPT-4.1 Nano
         self.llm = OpenAI(
             model="gpt-4.1-nano",
-            api_key=os.getenv("OPENAI_API_KEY"),  # Ensure your API key is set in the environment
-            temperature=0.75
+            api_key=os.getenv("OPENAI_API_KEY"),
+            temperature=0.5
+        
         )
+        self.regulatory_tool = RegulatoryDataTool()
+        self.fpml_tool = FPMLDataTool()
         self.load_configurations()
         self.setup_agents()
         self.setup_tasks()
@@ -94,15 +100,13 @@ class ComplianceCrew:
 
     def data_ingestion_task_execution(self, task):
         try:
-            # Read FPML data (simplified example)
-            fpml_data = {
-                "TradeDate": "2025-05-12",
-                "Counterparty": "ABC Corp",
-                "Notional": "1000000"
-            }
-            df = pd.DataFrame([fpml_data])
+            logger.debug("Starting data ingestion task execution")
+            fpml_data = self.fpml_tool.get_registry().get('trades', [])
+            if not fpml_data:
+                logger.error("No FPML data found")
+                return "No data to ingest"
+            df = pd.DataFrame(fpml_data)
             df.to_csv("ingestion_output.csv", index=False)
-
             logger.info("FPML data ingested and CSV created successfully")
             return "Data ingestion completed"
         except Exception as e:
@@ -111,17 +115,15 @@ class ComplianceCrew:
 
     def mapping_task_execution(self, task):
         try:
-            # Read ingested CSV
+            logger.debug("Starting mapping task execution")
             df = pd.read_csv("ingestion_output.csv")
-
-            # Simulate mapping process using regulatory documents
+            logger.debug(f"Data before mapping: {df.head()}")
             mapped_df = df.rename(columns={
                 "TradeDate": "Regulatory_Trade_Date",
                 "Counterparty": "Regulatory_Counterparty",
                 "Notional": "Regulatory_Notional"
             })
             mapped_df.to_csv("mapped_output.csv", index=False)
-
             logger.info("Data mapping completed and CSV created successfully")
             return "Mapping completed"
         except Exception as e:
@@ -130,33 +132,24 @@ class ComplianceCrew:
 
     def validation_task_execution(self, task):
         try:
-            # Read mapped CSV
+            logger.debug("Starting validation task execution")
             df = pd.read_csv("mapped_output.csv")
-
-            # Simulate validation against XML/XSD (simplified)
             validation_passed = all(df.columns == ["Regulatory_Trade_Date", "Regulatory_Counterparty", "Regulatory_Notional"])
-
-            if validation_passed:
-                logger.info("Validation successful")
-                return "Validation successful"
-            else:
-                logger.warning("Validation failed")
-                return "Validation failed"
+            validation_result = "Validation successful" if validation_passed else "Validation failed"
+            logger.info(validation_result)
+            return validation_result
         except Exception as e:
             logger.error(f"Error executing validation task: {str(e)}")
             raise
 
     def monitoring_task_execution(self, task):
         try:
-            # Read mapped CSV
+            logger.debug("Starting monitoring task execution")
             df = pd.read_csv("mapped_output.csv")
-
-            # Draft document providing information for each column
             column_info = df.dtypes.to_dict()
             with open("monitoring_report.txt", "w") as file:
                 for column, dtype in column_info.items():
                     file.write(f"Column: {column}, Type: {dtype}\n")
-
             logger.info("Monitoring document drafted successfully")
             return "Monitoring document drafted"
         except Exception as e:
@@ -166,6 +159,7 @@ class ComplianceCrew:
     def run_workflow(self):
         try:
             logger.info("Starting workflow execution...")
+            self.regulatory_tool.read_regulatory_docs("regulatory_docs_path")
             result = self.crew.kickoff()
             logger.info("Workflow completed successfully")
             return result
