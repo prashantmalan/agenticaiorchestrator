@@ -2,18 +2,24 @@ from crewai import Agent
 from textwrap import dedent
 from tools.fpml_data_tool import FPMLDataTools
 from tools.regulatory_data_tool import RegulatoryTools
+from crewai_tools import XMLSearchTool
 
 class RegulatoryAgents:
-    def __init__(self):
+    def __init__(self,llm):
         self.fpml_tool = FPMLDataTools()
         self.regulatory_tool = RegulatoryTools()
-
+        self.llm=llm
     def trade_data_ingestion_agent(self):
         return Agent(
             role="Data Ingestion",
             backstory="Responsible for ingesting data and preparing it for mapping.",
             goal="Read FPML data and generate a CSV with column names and values.",
-            tools=[self.fpml_tool.fetch_and_parse_fpml],
+            #tools=[self.fpml_tool.fetch_and_parse_fpml],
+            tools=[
+                XMLSearchTool(
+                    xml_folder=r"C:\Users\user\agenticaiorchestrator\data\fpml"  # Specify the folder containing XML files
+            )
+            ],
             verbose=True,
         )
 

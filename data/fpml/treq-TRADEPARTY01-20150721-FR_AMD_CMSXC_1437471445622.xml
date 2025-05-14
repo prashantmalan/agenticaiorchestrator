@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<trdoc:tradeEventRequestDocument xmlns:trdoc="http://www.hkicl.com.hk/tr-doc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.hkicl.com.hk/tr-doc ../extended/hkicl-tr-trade-event-doc.xsd">
+	<trdoc:requestDocumentHeader>
+		<trdoc:version>5.7</trdoc:version>
+		<trdoc:fileReference>FR_AMD_CMSXC_1437471445622</trdoc:fileReference>
+		<trdoc:submittingParty partyIdScheme="http://www.hkicl.com.hk/scheme/hktr/tr-entity-id">TRADEPARTY01</trdoc:submittingParty>
+		<trdoc:reportingParty partyIdScheme="http://www.hkicl.com.hk/scheme/hktr/tr-entity-id">TRADEPARTY01</trdoc:reportingParty>
+		<trdoc:numItems>1</trdoc:numItems>
+		<trdoc:purpose>Reporting</trdoc:purpose>
+	</trdoc:requestDocumentHeader>
+	<trdoc:requestDocumentDetails>
+	    
+<tr:eventActivityReport xmlns:tr="http://www.hkicl.com.hk/tr" xmlns="http://www.fpml.org/FpML-5/reporting" xmlns:ns3="http://www.w3.org/2000/09/xmldsig#" fpmlVersion="5-7">
+    <header>
+        <messageId messageIdScheme="http://www.hkicl.com.hk/scheme/hktr/message-id">ERI_CM_R03_4441268986</messageId>
+        <sentBy messageAddressScheme="http://www.hkicl.com.hk/scheme/hktr/tr-entity-id">TRADEPARTY01</sentBy>
+        <creationTimestamp>2015-07-23T10:57:38.739+08:00</creationTimestamp>
+    </header>
+    <correlationId correlationIdScheme="http://www.hkicl.com.hk/scheme/hktr/user-event-ref">UER_CM_R03_1127227134</correlationId>
+    <amendment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tr:TradeAmendmentContent">
+        <trade>
+            <tradeHeader>
+                <partyTradeIdentifier>
+                    <partyReference href="pty-TREntityID-TRADEPARTY01"/>
+                    <tradeId tradeIdScheme="http://www.hkicl.com.hk/scheme/global-unique-transaction-identifier">GUTI_CM_R02_8367269937</tradeId>
+                    <tradeId tradeIdScheme="http://www.hkicl.com.hk/scheme/new-global-unique-transaction-identifier">GUTI_CM_R03_4748973217</tradeId>
+                    <tradeId tradeIdScheme="http://www.hkicl.com.hk/scheme/new-prior-global-unique-transaction-identifier">PGUTI_CM_R03_4748973217</tradeId>
+                </partyTradeIdentifier>
+                <partyTradeIdentifier>
+                    <issuer issuerIdScheme="http://www.fpml.org/coding-scheme/external/cftc/issuer-identifier">UTI_CM_R03_6310282903</issuer>
+                    <tradeId tradeIdScheme="http://www.hkicl.com.hk/scheme/new-unique-transaction-identifier">UTI_VALUE_CM_R03_7415364162</tradeId>
+                </partyTradeIdentifier>
+                <partyTradeIdentifier>
+                    <issuer issuerIdScheme="http://www.fpml.org/coding-scheme/external/cftc/issuer-identifier">PUTI_CM_R03_8197709876</issuer>
+                    <tradeId tradeIdScheme="http://www.hkicl.com.hk/scheme/new-prior-unique-transaction-identifier">PUTI_VALUE_CM_R03_9621900426</tradeId>
+                </partyTradeIdentifier>
+                <partyTradeInformation xsi:type="tr:PartyTradeInformation">
+                    <partyReference href="pty-TREntityID-TRADEPARTY01"/>
+                    <relatedParty>
+                        <partyReference href="pty-ExternalTRID-CME"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">ClearingOrganization</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-CPParticipantID-HKTR"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">ConfirmationPlatform</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY02"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">CounterpartyBeforeCCPNovation</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY01"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">ClearingFirm</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY01"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">ExecutionAgent</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY01"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">SettlementAgent</role>
+                    </relatedParty>
+                    <unit unitScheme="http://www.hkicl.com.hk/scheme/hktr/unit">DESK_R03_1316649596</unit>
+                    <trader traderScheme="http://www.hkicl.com.hk/scheme/hktr/trader">TRADE_ID_R03_9081082917</trader>
+                    <timestamps>
+                        <confirmed>2015-07-21T17:37:25.000+08:00</confirmed>
+                        <submittedForClearing>2015-07-21T17:37:25.000+08:00</submittedForClearing>
+                        <cleared>2015-07-21T17:37:25.000+08:00</cleared>
+                    </timestamps>
+                    <intentToClear>true</intentToClear>
+                    <collateralizationType collateralTypeScheme="http://www.fpml.org/coding-scheme/collateral-type">Fully</collateralizationType>
+                    <verificationMethod verificationMethodScheme="http://www.fpml.org/coding-scheme/verification-method">Electronic</verificationMethod>
+                    <tr:specialTerms>Yes</tr:specialTerms>
+                    <tr:cleared>false</tr:cleared>
+                    <tr:counterpartyOrigin counterpartyOriginScheme="http://www.hkicl.com.hk/scheme/hktr/counterparty-origin">Customer</tr:counterpartyOrigin>
+                    <tr:parentOriginator href="pty-TREntityID-TRADEPARTY01"/>
+                    <tr:parentCounterparty href="pty-TREntityID-TRADEPARTY02"/>
+                    <tr:industrialSector industrialSectorScheme="http://www.hkicl.com.hk/scheme/hktr/industrial-sector">Corporate</tr:industrialSector>
+                    <tr:clearingExemption>true</tr:clearingExemption>
+                    <tr:referenceBranch>REFERENCE_BARCH_OF_TRADE_PARTY_R03_2116098106</tr:referenceBranch>
+                    <tr:maintenanceMargin>
+                        <currency currencyScheme="http://www.fpml.org/ext/iso4217-2001-08-15">AUD</currency>
+                        <amount>45645645604564564560.0456456456</amount>
+                    </tr:maintenanceMargin>
+                    <tr:variationMargin>
+                        <currency currencyScheme="http://www.fpml.org/ext/iso4217-2001-08-15">CAD</currency>
+                        <amount>67867867806786786780.0678678678</amount>
+                    </tr:variationMargin>
+                    <tr:priceNotation>
+                        <tr:priceType>SettlementCurrency</tr:priceType>
+                        <tr:price>45645645604564564560.0456456456</tr:price>
+                    </tr:priceNotation>
+                    <tr:remarks1>REMARK1_4851564117</tr:remarks1>
+                    <tr:remarks2>REMARK2_6854573758</tr:remarks2>
+                </partyTradeInformation>
+                <partyTradeInformation xsi:type="tr:PartyTradeInformation">
+                    <partyReference href="pty-TREntityID-TRADEPARTY02"/>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY02"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">CounterpartyBeforeCCPNovation</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY02"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">ClearingFirm</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY02"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">ExecutionAgent</role>
+                    </relatedParty>
+                    <relatedParty>
+                        <partyReference href="pty-TREntityID-TRADEPARTY02"/>
+                        <role partyRoleScheme="http://www.hkicl.com.hk/scheme/hktr/party-role">SettlementAgent</role>
+                    </relatedParty>
+                    <tr:industrialSector industrialSectorScheme="http://www.hkicl.com.hk/scheme/hktr/industrial-sector">Individual</tr:industrialSector>
+                    <tr:referenceBranch>REFERENCE_BARCH_OF_COUNTER_TRADE_PARTY_R03_1927657089</tr:referenceBranch>
+                </partyTradeInformation>
+                <tradeDate>2015-07-21</tradeDate>
+            </tradeHeader>
+            <commoditySwap>
+                <primaryAssetClass assetClassScheme="http://www.fpml.org/coding-scheme/asset-class">Commodity</primaryAssetClass>
+                <productType productTypeScheme="http://www.hkicl.com.hk/scheme/hktr/product-taxonomy">Commodity:Swap:FixedCoal</productType>
+                <productType productTypeScheme="http://www.fpml.org/coding-scheme/product-taxonomy">Commodity:Energy:Coal:Swap:Cash</productType>
+                <productId productIdScheme="http://www.fpml.org/coding-scheme/external/unique-product-identifier">UPI_ID_VALUE_R03_4955062126</productId>
+                <effectiveDate>
+                    <adjustableDate>
+                        <unadjustedDate>2015-07-21</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>FOLLOWING</businessDayConvention>
+                        </dateAdjustments>
+                    </adjustableDate>
+                </effectiveDate>
+                <terminationDate>
+                    <adjustableDate>
+                        <unadjustedDate>2016-07-20</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        </dateAdjustments>
+                    </adjustableDate>
+                </terminationDate>
+                <settlementCurrency currencyScheme="http://www.fpml.org/ext/iso4217-2001-08-15">USD</settlementCurrency>
+                <fixedLeg>
+                    <payerPartyReference href="pty-TREntityID-TRADEPARTY02"/>
+                    <receiverPartyReference href="pty-TREntityID-TRADEPARTY01"/>
+                    <fixedPrice>
+                        <price>45645645604564564560.0456456456</price>
+                        <priceCurrency currencyScheme="http://www.fpml.org/ext/iso4217-2001-08-15">AUD</priceCurrency>
+                        <priceUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">Discount</priceUnit>
+                    </fixedPrice>
+                    <totalPrice>
+                        <currency currencyScheme="http://www.fpml.org/ext/iso4217-2001-08-15">AUD</currency>
+                        <amount>45645645604564564560.0456456456</amount>
+                    </totalPrice>
+                    <notionalQuantitySchedule>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BBL</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerCalculationPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                        <notionalStep>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BCF</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerBusinessDay</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </notionalStep>
+                    </notionalQuantitySchedule>
+                    <totalNotionalQuantity>45645645604564564560.0456456456</totalNotionalQuantity>
+                </fixedLeg>
+                <coalPhysicalLeg>
+                    <payerPartyReference href="pty-TREntityID-TRADEPARTY01"/>
+                    <receiverPartyReference href="pty-TREntityID-TRADEPARTY02"/>
+                    <deliveryPeriods>
+                        <periods>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-01-01</unadjustedDate>
+                            <unadjustedDate>2015-12-31</unadjustedDate>
+                            <dateAdjustments>
+<businessDayConvention>MODFOLLOWING</businessDayConvention>
+                            </dateAdjustments>
+                        </periods>
+                    </deliveryPeriods>
+                    <coal>
+                        <type commodityCoalProductTypeScheme="http://www.fpml.org/coding-scheme/commodity-coal-product-type">CAR125CS</type>
+                        <source commodityCoalProductSourceScheme="http://www.fpml.org/coding-scheme/commodity-coal-product-source">NYMEXStandard</source>
+                        <sCoTASpecifications>true</sCoTASpecifications>
+                        <btuQualityAdjustment commodityCoalQualityAdjustmentsScheme="http://www.fpml.org/coding-scheme/commodity-coal-quality-adjustments">Clause10Appendix1</btuQualityAdjustment>
+                        <so2QualityAdjustment commodityCoalQualityAdjustmentsScheme="http://www.fpml.org/coding-scheme/commodity-coal-quality-adjustments">Clause10Appendix1</so2QualityAdjustment>
+                    </coal>
+                    <deliveryConditions>
+                        <deliveryAtSource>true</deliveryAtSource>
+                    </deliveryConditions>
+                    <deliveryQuantity>
+                        <physicalQuantity>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BasisPointValuePerBasisPoint</quantityUnit>
+                            <quantityFrequency quantityFrequencyScheme="http://www.fpml.org/coding-scheme/commodity-quantity-frequency">PerSettlementPeriod</quantityFrequency>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </physicalQuantity>
+                        <totalPhysicalQuantity>
+                            <quantityUnit quantityUnitScheme="http://www.fpml.org/coding-scheme/price-quote-units">BasisPointValue</quantityUnit>
+                            <quantity>45645645604564564560.0456456456</quantity>
+                        </totalPhysicalQuantity>
+                    </deliveryQuantity>
+                </coalPhysicalLeg>
+            </commoditySwap>
+            <brokerPartyReference href="pty-TREntityID-TRADEPARTY01"/>
+            <brokerPartyReference href="pty-TREntityID-TRADEPARTY02"/>
+            <calculationAgent>
+                <calculationAgentPartyReference href="pty-TREntityID-TRADEPARTY01"/>
+                <calculationAgentPartyReference href="pty-TREntityID-TRADEPARTY02"/>
+            </calculationAgent>
+            <calculationAgentBusinessCenter>AEAD</calculationAgentBusinessCenter>
+            <collateral xsi:type="tr:Collateral">
+                <independentAmount>
+                    <payerPartyReference href="pty-TREntityID-TRADEPARTY01"/>
+                    <paymentDetail>
+                        <paymentAmount>
+                            <currency currencyScheme="http://www.fpml.org/ext/iso4217-2001-08-15">AUD</currency>
+                            <amount>45645645604564564560.0456456456</amount>
+                        </paymentAmount>
+                    </paymentDetail>
+                </independentAmount>
+                <tr:linkedIndependentAmount>
+                    <payerPartyReference href="pty-TREntityID-TRADEPARTY02"/>
+                    <paymentDetail>
+                        <paymentAmount>
+                            <currency currencyScheme="http://www.fpml.org/ext/iso4217-2001-08-15">CAD</currency>
+                            <amount>67867867806786786780.0678678678</amount>
+                        </paymentAmount>
+                    </paymentDetail>
+                </tr:linkedIndependentAmount>
+            </collateral>
+            <documentation xsi:type="tr:Documentation">
+                <masterAgreement>
+                    <masterAgreementType masterAgreementTypeScheme="http://www.fpml.org/coding-scheme/master-agreement-type">ISDA</masterAgreementType>
+                    <masterAgreementVersion>2006</masterAgreementVersion>
+                    <masterAgreementDate>2015-07-21</masterAgreementDate>
+                </masterAgreement>
+                <contractualDefinitions contractualDefinitionsScheme="http://www.fpml.org/coding-scheme/contractual-definitions">ISDA2005Commodity</contractualDefinitions>
+                <tr:masterSupplementDate>2015-07-21</tr:masterSupplementDate>
+            </documentation>
+        </trade>
+        <agreementDate>2015-07-21</agreementDate>
+        <effectiveDate>2015-07-21</effectiveDate>
+        <tr:tradeParty1 href="pty-TREntityID-TRADEPARTY01"/>
+        <tr:tradeParty2 href="pty-TREntityID-TRADEPARTY02"/>
+        <tr:utiIndicator>true</tr:utiIndicator>
+        <tr:specialTermsIndicator>true</tr:specialTermsIndicator>
+        <tr:bilateralComments>BILATERAL_COMMENTS_R03_2124172126</tr:bilateralComments>
+        <tr:partyEventInformation>
+            <partyReference href="pty-TREntityID-TRADEPARTY01"/>
+            <tr:eventId eventIdScheme="http://www.hkicl.com.hk/scheme/hktr/user-event-ref">UER_CM_R03_1127227134</tr:eventId>
+            <tr:confirmed>true</tr:confirmed>
+            <tr:executionType executionTypeScheme="http://www.fpml.org/coding-scheme/execution-type">Voice</tr:executionType>
+            <tr:executionVenueType executionVenueTypeScheme="http://www.fpml.org/coding-scheme/execution-venue-type">DCM</tr:executionVenueType>
+            <tr:eventProcessingTimestamps>
+                <tr:orderEntryTimestamp>2015-07-21T17:37:25.000+08:00</tr:orderEntryTimestamp>
+                <tr:submissionOfOrderEntryTimestamp>2015-07-21T17:37:25.000+08:00</tr:submissionOfOrderEntryTimestamp>
+            </tr:eventProcessingTimestamps>
+            <tr:remarks>Remark_0442237746</tr:remarks>
+        </tr:partyEventInformation>
+    </amendment>
+    <party id="pty-TREntityID-TRADEPARTY01">
+        <partyId partyIdScheme="http://www.hkicl.com.hk/scheme/hktr/tr-entity-id">TRADEPARTY01</partyId>
+        <partyName>PARTY_NAME_R03_0904665601</partyName>
+        <country countryScheme="http://www.fpml.org/coding-scheme/external/iso3166">USA</country>
+    </party>
+    <party id="pty-TREntityID-TRADEPARTY02">
+        <partyId partyIdScheme="http://www.hkicl.com.hk/scheme/hktr/tr-entity-id">TRADEPARTY02</partyId>
+        <partyName>COUNTERPARTY_NAME_R03_1648587453</partyName>
+        <country countryScheme="http://www.fpml.org/coding-scheme/external/iso3166">GBR</country>
+    </party>
+    <party id="pty-ExternalTRID-CME">
+        <partyId partyIdScheme="http://www.hkicl.com.hk/scheme/hktr/ccp-id">CME</partyId>
+    </party>
+    <party id="pty-CPParticipantID-HKTR">
+        <partyId partyIdScheme="http://www.hkicl.com.hk/scheme/hktr/cp-id">HKTR</partyId>
+    </party>
+    <tr:reportingFor>
+        <tr:tradePartyReference href="pty-TREntityID-TRADEPARTY01"/>
+        <tr:reportingPartyReference href="pty-TREntityID-TRADEPARTY01"/>
+    </tr:reportingFor>
+</tr:eventActivityReport>
+
+	</trdoc:requestDocumentDetails>
+</trdoc:tradeEventRequestDocument>
+	
